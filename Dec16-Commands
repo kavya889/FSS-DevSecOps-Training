@@ -103,3 +103,100 @@ Git Commands :
   57 git checkout master
   58 git merge test
   59 git push origin master
+
+**************************************
+
+   2 git init
+   3 git status
+   4 git add index.html
+   5 git status
+   6 git commit -m "Index Page Added"
+   7 git log
+   8 git show c3ee539
+   9 history
+  10 git remote -v
+  11 git remote set-url origin https://github.com/Msocial123/FSS-Web-Project.git
+  12 git remote -v
+  13 clear
+  14 git push origin main
+  15 git push origin master
+  16 history
+  17 git add .;git commit -m "Sample Project";git push origin master;
+  18 git add .;git commit -m "Sample Project";git push origin master;
+  19 clear
+  20 git pull origin master
+  21 git log
+  22 git log --oneline
+  23 git show f7f7eb6
+  24 history
+  25 clear
+  26 git branch
+  27 git branch signup
+  28 git branch
+  29 git checkout signup
+  30 git checkout master
+  31 git checkout signup
+  32 git add .
+  33 git commit -m "Signup page created"
+  34 git checkout master
+  35 git checkout signup
+  36 git log --oneline
+  37 git checkout master
+  38 git log --oneline
+  39 git checkout signup
+  40 git branch test
+  41 git branch
+  42 git checkout test
+  43 git checkout signup
+  44 git add .
+  45 git commit -m "Added the changes "
+  46 git merge test
+  47 git checkout test
+  48 git merge signup
+  49 git checkout signup
+  50 git push origin signup
+  51 git checkout test
+  52 git push origin test
+  53 git pull
+  54 git pull origin
+  55 git pull origin master
+  56 git branch master
+  57 git checkout master
+  58 git merge test
+  59 git push origin master
+  60 history
+  61 git add .
+  62 git commit -m "Committed"
+  63 git checkout test
+  64 git add .
+  65 git commit -m "File Committed"
+  66 git checkout master
+  67 git merge test
+  68 git status
+  69 git add .
+  70 git commit -m "Committed"
+  71 git add .
+  72 git status
+  73 git reset add.py
+  74 git status
+  75 git add .
+  76 git commit -m "Committed"
+  77 git log --oneline
+  78 git revert 27374c1
+  79 git log --oneline
+  80 git show 68d520c
+  81 git add .
+  82 git commit -m "Committed"
+  83 git stash
+  84 git stash kist
+  85 git stash list
+  86 git stash
+  87 git stash
+  88 git stash list
+  89 git stash
+  90 git stash
+  91 git stash list
+  92 git stash apply 'stash@{1}'
+  93 git add .
+  94 git commit -m "Committed"
+  95 git stash clear
