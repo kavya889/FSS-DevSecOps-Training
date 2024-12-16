@@ -17,3 +17,28 @@
    git remote -v
 
 *************************************************************************************   
+
+Git Commands :
+
+   2 git init
+   3 git status
+   4 git add index.html
+   5 git status
+   6 git commit -m "Index Page Added"
+   7 git log
+   8 git show c3ee539
+   9 history
+  10 git remote -v
+  11 git remote set-url origin https://github.com/Msocial123/FSS-Web-Project.git
+  12 git remote -v
+  13 clear
+  14 git push origin main
+  15 git push origin master
+  16 history
+  17 git add .;git commit -m "Sample Project";git push origin master;
+  18 git add .;git commit -m "Sample Project";git push origin master;
+  19 clear
+  20 git pull origin master
+  21 git log
+  22 git log --oneline
+  23 git show f7f7eb6
