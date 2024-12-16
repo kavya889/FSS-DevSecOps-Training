@@ -12,4 +12,8 @@
 
    git remote set-url origin https://github.com/Msocial123/FSS-Web-Project.git
 
+   To check the remote connection:
+
+   git remote -v
+
 *************************************************************************************   
