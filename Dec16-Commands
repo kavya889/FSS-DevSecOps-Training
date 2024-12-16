@@ -5,3 +5,11 @@
    6 git commit -m "Index Page Added"
    7 git log
    8 git show c3ee539
+   ******************************************************************************
+   git remote add origin <URL>
+
+   if remote connection already existed if you want to changes use - Set-URL :
+
+   git remote set-url origin https://github.com/Msocial123/FSS-Web-Project.git
+
+*************************************************************************************   
