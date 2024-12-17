@@ -1,0 +1,4 @@
+Step1 : Access the jenkins server - Goto Manage Jenkins - Tools - Set the Java Path - Install Git on Jenkins Server - Set the Maven - Select Install Automatically 
+Step2 : Goto Manage Jenkins -- Install Maven Plugin - Maven Info, Maven Invoker , Maven Pipeline , Maven Integration 
+Step3: Come dashborad -- Click on the new Item - Select Maven Project 
+Step4: First Fork the repo -- Provide the URL -- Trigger Select Build Periodically H/5 * * * * , Build - clean package sonar:sonar
