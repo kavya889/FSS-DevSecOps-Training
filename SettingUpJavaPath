@@ -10,7 +10,7 @@ sudo alternatives --config java
 
 step2:- To find the java path 
 
-find /usr/lib/jvm/java-17* | head -n 3
+find /usr/lib/jvm/java-11* | head -n 3
 
 it will display the out put below like wise 
 
