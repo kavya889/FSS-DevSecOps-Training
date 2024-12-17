@@ -1,0 +1,34 @@
+step1:- Install Java and setting Java Path
+
+sudo yum install -y java-11-amazon-corretto
+ 
+java -version
+
+To List out the installed Java : 
+
+sudo alternatives --config java
+
+step2:- To find the java path 
+
+find /usr/lib/jvm/java-17* | head -n 3
+
+it will display the out put below like wise 
+
+/usr/lib/jvm/java-17-amazon-corretto
+/usr/lib/jvm/java-17-amazon-corretto.x86_64
+/usr/lib/jvm/java-17-amazon-corretto.x86_64/bin
+
+step3:- Create a file vi /etc/profile.d/jdk.sh and paste the above lines
+
+export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64
+PATH=$JAVA_HOME/bin:$PATH
+
+save and exit
+
+step4:- Reload profile.d/jdk.sh file as given below command
+
+source /etc/profile.d/jdk.sh
+
+step5:- Once reload the file to check the java path given below command
+
+echo $JAVA_HOME
