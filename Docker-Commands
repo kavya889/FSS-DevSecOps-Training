@@ -24,3 +24,4 @@
   24 docker exec -it --name A1 /bin/bash
   25 docker exec -it example A1 /bin/bash
   26 docker exec -it A1 /bin/bash
+  27.docker run -it --name B1V -v E:\Trainings\FSS-Web-Project:/web ubuntu /bin/bash
