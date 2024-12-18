@@ -23,11 +23,15 @@ pipeline {
                 }
             }
         }
-        stage('Quality Gate') {
-            steps {
+        stage('Quality Gate') { 
+          steps {
+            script {
+                timeout(time: 2, unit: 'MINUTES') {  // Set timeout to 2 minutes
                 waitForQualityGate abortPipeline: true
             }
         }
+    }
+}     
     }
 
         post {
