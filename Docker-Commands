@@ -1,0 +1,26 @@
+   1 docker ps
+   2 docker ps -a
+   3 docker stats
+   4 history
+   5 history
+   6 docker create ubuntu /bin/bash
+   7 docker ps -a
+   8 clear
+   9 history
+  10 docker run -it --name webserver ubuntu /bin/bash
+  11 docker run -it --name webserver1 ubuntu /bin/bash
+  12 docker run -it --name sample ubuntu /bin/bash
+  13 docker start sample
+  14 docker attach sample
+  15 docker stop sample
+  16 docker ps
+  17 docker pause exampl
+  18 docker pause example
+  19 docker unpause example
+  20 docker ps -a
+  21 clear
+  22 docker run -td --name A1 amazonlinux /bin/bash
+  23 docker ps
+  24 docker exec -it --name A1 /bin/bash
+  25 docker exec -it example A1 /bin/bash
+  26 docker exec -it A1 /bin/bash
