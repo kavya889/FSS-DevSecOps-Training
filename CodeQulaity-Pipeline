@@ -2,3 +2,49 @@ Step1 : Access the jenkins server - Goto Manage Jenkins - Tools - Set the Java P
 Step2 : Goto Manage Jenkins -- Install Maven Plugin - Maven Info, Maven Invoker , Maven Pipeline , Maven Integration 
 Step3: Come dashborad -- Click on the new Item - Select Maven Project 
 Step4: First Fork the repo -- Provide the URL -- Trigger Select Build Periodically H/5 * * * * , Build - clean package sonar:sonar
+
+
+pipeline {
+    agent any
+    
+    environment {
+        SCANNER_HOME = tool 'SonarScanner'
+    }
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/Msocial123/FSS-Web-Project.git'
+            }
+        }
+        
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('Sonar-Server') {
+                    sh '''
+                        $SCANNER_HOME/bin/sonar-scanner \
+                        -Dsonar.projectKey=FSS-Web-Project \
+                        -Dsonar.projectName=FSS-Web-Project
+                    '''
+                }
+            }
+        }
+        stage('Quality Gate') {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+    }
+
+        post {
+          always {
+            echo 'Pipeline completed.'
+        }
+        success {
+            echo 'Code quality check passed.'
+        }
+        failure {
+            echo 'Code quality check failed.'
+        }
+        }           
+}

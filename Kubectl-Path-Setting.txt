@@ -1,0 +1,9 @@
+which kubectl
+echo 'export PATH=$PATH:/root/bin' >> ~/.bash_profile
+echo 'export PATH=$PATH:/root/bin' >> ~/.bashrc
+source ~/.bash_profile
+echo $PATH
+which kubectl
+kubectl version --client
+
+

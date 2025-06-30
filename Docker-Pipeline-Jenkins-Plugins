@@ -1,0 +1,13 @@
+Plugins : 
+
+Step1: Install Docker Plugin  - Docker,Docker Pipeline, Docker API 
+Ste2 : Configure the hub.docker.com Credemcials in Jenkins 
+Step3: Setup the Docker Cloud Agent 
+Step4: Integrate AWS with Jenkins - AWS Credencials , Pipeline:AWS-Steps 
+Step5 : Install AWS CLI On Jenkins 
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+Step6: Configure AWS Credencials in Jenkins 
+

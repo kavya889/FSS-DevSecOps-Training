@@ -1,0 +1,37 @@
+  apt-get update -y
+    3  clear
+### Install Kubectl###
+    4  curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.4/2024-09-11/bin/linux/amd64/kubectl
+    5  curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.4/2024-09-11/bin/linux/amd64/kubectl.sha256
+    6  sha256sum -c kubectl.sha256
+    7  chmod +x ./kubectl
+    8  mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
+    9  kubectl version --client
+   ### Install AWS CLI #### 
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+apt-get install unzip -y
+unzip awscliv2.zip
+sudo ./aws/install
+############# EKSCTL Installation ############
+   17  curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+   18  sudo mv /tmp/eksctl /usr/local/bin
+   19  eksctl version
+   20  clear
+###### Configure the AWS #######
+   21  aws configure
+   22  clear
+#### Install EKSCTL #######
+   23  eksctl create cluster --name test-cluster --version 1.31 --region ap-south-1 --nodegroup-name test-linux --node-type t2.medium --nodes 3 --autoscale --min-nodes 1 --max-nodes 5
+   24  clear
+   25  kubectl get nodes
+   26  aws eks update-kubeconfig –-name test-cluster –region ap-southeast-1
+   27  aws eks update-kubeconfig --name test-cluster --region ap-southeast-1
+   28  history
+
+
+   aws eks update-kubeconfig –-name test-cluster –region ap-southeast-1
+
+
+   Through Shell Script :
+
+   curl https://raw.githubusercontent.com/Msocial123/k8-install-eks/master/eks-client.sh | sudo bash

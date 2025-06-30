@@ -1,0 +1,9 @@
+Trivy Installation :
+
+    sudo yum update -y
+    sudo yum install wget gnupg -y
+    sudo rpm --import https://aquasecurity.github.io/trivy-repo/deb/public.key
+    sudo sh -c 'echo -e "[aquasecurity]\nname=Trivy Repository\nbaseurl=https://aquasecurity.github.io/trivy-repo/rpm/releases/$(uname -m)\ngpgcheck=1\nenabled=1" > /etc/yum.repos.d/trivy.repo'
+    sudo yum install trivy -y
+    trivy --version
+    

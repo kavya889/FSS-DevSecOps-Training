@@ -25,3 +25,34 @@
   25 docker exec -it example A1 /bin/bash
   26 docker exec -it A1 /bin/bash
   27.docker run -it --name B1V -v E:\Trainings\FSS-Web-Project:/web ubuntu /bin/bash
+  28.docker pull muralisocial123/fss-web-app:latest
+  29.docker run -td --name web-app -p 82:80 muralisocial123/fss-web-app:latest
+
+  ########################################################################
+  Trivy :
+
+  70  trivy image muralisocial123/fss-web-app:latest
+   71  trivy image muralisocial123/fss-web-app:latest
+   72  trivy image --severity HIGH muralisocial123/fss-web-app:latest
+   73  trivy image muralisocial123/fss-web-app:latest | grep "Severity:HIGH"
+   74  trivy image muralisocial123/fss-web-app:latest | grep "Severity:LOW"
+   75  docker images
+   76  trivy image muralisocial123/fss-web-app --format json>output.json
+   77  ls
+   78  cat output.json
+   79  trivy image muralisocial123/fss-web-app --format csv>output.csv
+   80  clear
+   81  ls
+   82  docker pull muralisocial123/transcation-bank-app:latest
+   83  l
+   84  ls
+   85  docker images
+   86  clear
+   87  vi input.txt
+   88  trivy image --input input.txt
+   89  docker images
+   90  trivy image muralisocial123/fss-web-app:latest muralisocial123/transcation-bank-app:latest
+   91  clear
+   92  docker images
+   93  docker pull nginx
+   94.  trivy image nginx && trivy image muralisocial123/transcation-bank-app:latest

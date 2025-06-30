@@ -1,0 +1,72 @@
+pipeline {
+  agent any
+    parameters{
+        string(name: 'VERSION', description: 'Enter the APP VERSION')
+    }  
+environment{
+        AWS_ACCOUNT_ID="180294176663"
+        REGION="ap-south-1"
+        REPO_URI="${AWS_ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com/fss"
+        DOCKER_REGISTRY = 'docker.io'
+        DOCKER_REGISTRY_CREDENTIALS = 'docker-cred'
+    }
+  stages {
+    stage('Clone') {
+        steps {
+                // Explicitly clone the Git repository
+                echo 'Cloning the GitHub repository...'
+                git url: 'https://github.com/Msocial123/FSS-Web-Project.git', branch: 'master'
+            }
+    }
+
+    stage('Docker build'){
+            steps{
+                script{                  
+                        sh """
+                         docker build -t fss-example-web-app:${VERSION} .
+                        """
+                }
+            }
+        }
+
+    stage('Image push to ECR'){
+            steps{
+                script{
+                    withAWS(credentials: 'aws-cred', region: "${REGION}") {
+                        sh """
+                            aws ecr get-login-password --region ${REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com
+                        docker tag fss-example-web-app:${VERSION} ${REPO_URI}:${VERSION}
+                        docker push ${REPO_URI}:${VERSION}
+                        """
+                    }
+                }
+            }
+        }
+        
+    stage('Image push to Docker Hub'){
+            steps{
+                script{
+                        withCredentials([usernamePassword(credentialsId: "${DOCKER_REGISTRY_CREDENTIALS}", passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                    
+                        sh """
+                        docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+                        docker tag fss-example-web-app:${VERSION}  muralisocial123/fss-example-web-app:${VERSION}
+                        docker push muralisocial123/fss-example-web-app:${VERSION}
+                        """
+                    
+                    }
+                }
+                }
+            } 
+    stage('Trivy Security Scan - Table Format') {
+            steps {
+                script {
+                    
+                        sh """
+                            trivy image fss-example-web-app:${VERSION} --format json>input.json
+                        """
+                }
+            }
+        }           
+}
+}

@@ -20,7 +20,7 @@ it will display the out put below like wise
 
 step3:- Create a file vi /etc/profile.d/jdk.sh and paste the above lines
 
-export JAVA_HOME=/usr/lib/jvm/java-11-amazon-corretto.x86_64
+export JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto.x86_64
 PATH=$JAVA_HOME/bin:$PATH
 
 save and exit
@@ -32,3 +32,5 @@ source /etc/profile.d/jdk.sh
 step5:- Once reload the file to check the java path given below command
 
 echo $JAVA_HOME
+
+SONAR_SCANNER_PATH = '/opt/sonar-scanner/bin/sonar-scanner
